@@ -1,0 +1,19 @@
+{
+  "name": "bookmyshow",
+  "version": "1.0.0",
+  "description": "bookmyshow watcher",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "code-soham",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "dotenv": "^16.0.0",
+    "node-fetch": "^3.2.3",
+    "twilio": "^3.76.1"
+  },
+  "type": "module"
+}
