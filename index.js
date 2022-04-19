@@ -45,13 +45,15 @@ const fetchData = async () => {
 };
 
 const main = async () => {
+  let timer=0;
   const cron = setInterval(() => {
     fetchData();
-    // console.log(success);
+    timer++;
+    console.log(`Attempt ${timer} -> ${success}`);
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 30);
+  }, 1000 * 2);
 };
 
 main();
