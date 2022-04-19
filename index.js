@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 import { load } from "cheerio";
 import twilio from "twilio";
+import 'dotenv/config'
 import config from "./config.js";
 import "dotenv/config";
 const URL =
@@ -45,7 +46,8 @@ const fetchData = async () => {
 };
 
 const main = async () => {
-  let timer=0;
+  console.log(config)
+  let timer = 0;
   const cron = setInterval(() => {
     fetchData();
     timer++;
@@ -53,7 +55,13 @@ const main = async () => {
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 2);
+  }, 1000 * 30);
 };
 
 main();
+
+import express from "express";
+const app = express();
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server started at port ${config.port}`);
+});
