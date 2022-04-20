@@ -5,9 +5,9 @@ import "dotenv/config";
 import config from "./config.js";
 import "dotenv/config";
 import request from "request";
-// const URL =
-  // "https://in.bookmyshow.com/jalpaiguri/movies/doctor-strange-in-the-multiverse-of-madness/ET00310791";
-const URL = "https://in.bookmyshow.com/jalpaiguri/movies/the-eken/ET00323465"
+const URL =
+  "https://in.bookmyshow.com/jalpaiguri/movies/doctor-strange-in-the-multiverse-of-madness/ET00310791";
+// const URL = "https://in.bookmyshow.com/jalpaiguri/movies/the-eken/ET00323465"
 const getRawData = (URL) => {
   return fetch(URL)
     .then((response) => response.text())
@@ -66,7 +66,7 @@ const main = async () => {
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 5);
+  }, 1000 * 30);
 };
 main();
 
