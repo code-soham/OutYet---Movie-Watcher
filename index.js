@@ -1,12 +1,13 @@
 import fetch from "node-fetch";
 import { load } from "cheerio";
 import twilio from "twilio";
-import 'dotenv/config'
+import "dotenv/config";
 import config from "./config.js";
 import "dotenv/config";
-const URL =
-  "https://in.bookmyshow.com/jalpaiguri/movies/doctor-strange-in-the-multiverse-of-madness/ET00310791";
-// const URL = "https://in.bookmyshow.com/jalpaiguri/movies/the-eken/ET00323465"
+import request from "request";
+// const URL =
+  // "https://in.bookmyshow.com/jalpaiguri/movies/doctor-strange-in-the-multiverse-of-madness/ET00310791";
+const URL = "https://in.bookmyshow.com/jalpaiguri/movies/the-eken/ET00323465"
 const getRawData = (URL) => {
   return fetch(URL)
     .then((response) => response.text())
@@ -44,10 +45,20 @@ const fetchData = async () => {
     success = true;
   }
 };
+const ping = () =>
+  request(
+    "https://frozen-tundra-11970.herokuapp.com/",
+    (error, response, body) => {
+      console.log("Error: ", error);
+      console.log("Status Code: ", response && response.statusCode);
+      console.log("Body: ", body);
+    }
+  );
 
 const main = async () => {
-  console.log(config)
+  console.log(config);
   let timer = 0;
+  setInterval(ping, 20 * 60 * 1000);
   const cron = setInterval(() => {
     fetchData();
     timer++;
@@ -55,9 +66,8 @@ const main = async () => {
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 30);
+  }, 1000 * 5);
 };
-
 main();
 
 import express from "express";
