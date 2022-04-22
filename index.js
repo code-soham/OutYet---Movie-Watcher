@@ -72,6 +72,21 @@ main();
 
 import express from "express";
 const app = express();
+
+app.get("/", (req, res) => {
+  res.send(
+    new Date().toLocaleDateString("en-GB", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    })
+  );
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server started at port ${config.port}`);
 });
