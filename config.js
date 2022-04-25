@@ -18,7 +18,8 @@ cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
 cfg.twilioNumber = process.env.TWILIO_NUMBER;
 
 // The sales rep / agent's phone number
-cfg.agentNumber = process.env.AGENT_NUMBER;
+cfg.agentNumber1 = process.env.AGENT_NUMBER_1;
+cfg.agentNumber2 = process.env.AGENT_NUMBER_2;
 
 // Export configuration object
 export default cfg;

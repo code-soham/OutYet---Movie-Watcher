@@ -21,7 +21,19 @@ const callup = (loc) => {
   var message = " Tickets Out for " + loc + "!! . Book now @ " + URL;
   client.messages
     .create({
-      to: config.agentNumber,
+      to: config.agentNumber1,
+      from: config.twilioNumber,
+      body: message,
+    })
+    .then(() => {
+      response.status(200).send("Alerted Successfully");
+    })
+    .catch((err) => {
+      response.status(500).send();
+    });
+  client.messages
+    .create({
+      to: config.agentNumber2,
       from: config.twilioNumber,
       body: message,
     })
@@ -66,7 +78,7 @@ const main = async () => {
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 30);
+  }, 1000 * 3);
 };
 main();
 
