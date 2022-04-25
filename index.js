@@ -59,7 +59,7 @@ const fetchData = async () => {
 };
 const ping = () =>
   request(
-    "https://frozen-tundra-11970.herokuapp.com/",
+    "https://movie--spy.herokuapp.com/",
     (error, response, body) => {
       console.log("Error: ", error);
       console.log("Status Code: ", response && response.statusCode);
@@ -78,7 +78,7 @@ const main = async () => {
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 30);
+  }, 1000 * 30 );
 };
 main();
 
