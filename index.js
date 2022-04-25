@@ -78,7 +78,7 @@ const main = async () => {
     if (success == true) {
       clearInterval(cron);
     }
-  }, 1000 * 3);
+  }, 1000 * 30);
 };
 main();
 
